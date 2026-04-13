@@ -1,1 +1,22 @@
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+}
 
+model Transaction {
+  id        String   @id @default(uuid())
+  amount    Float
+  type      String
+  provider  String
+  status    String
+  reference String
+  createdAt DateTime @default(now())
+}
+
+model LedgerEntry {
+  id     String @id @default(uuid())
+  debit  String
+  credit String
+  amount Float
+}
